@@ -172,11 +172,13 @@ while running:
             if event.key == pygame.K_RIGHT:
                 playerX_change = 0.3
             if event.key == pygame.K_SPACE:
-                bullet_Sound = mixer.Sound('ytmp3free.cc_8-bit-laser-sound-effect-youtubemp3free.org.wav')
-                bullet_Sound.play()
-                if bullet_state is "Ready":
+                if bullet_state == "Ready":
+                 bullet_Sound = mixer.Sound('ytmp3free.cc_8-bit-laser-sound-effect-youtubemp3free.org.wav')
+                 bullet_Sound.play()
                  bulletX = playerX
-                fire_bullet(bulletX,bulletY)
+                 bullet_state = "Fire"
+                 fire_bullet(bulletX,bulletY)
+
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
